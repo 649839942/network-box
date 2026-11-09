@@ -1,0 +1,67 @@
+# ============================================
+# 思科 Cisco IOS 交换机巡检命令模板
+# 个别命令受设备型号和 IOS 版本影响
+# ============================================
+
+# ---------- 1. 系统基本信息 ----------
+system_info:
+  description: "获取设备版本、硬件和序列号信息"
+  commands:
+    - command: show version
+      note: "IOS 版本、设备型号和运行时间"
+    - command: show inventory
+      note: "硬件模块和序列号信息"
+    - command: show environment all
+      note: "温度、风扇和电源环境状态"
+
+# ---------- 2. CPU 与内存 ----------
+resource_usage:
+  description: "CPU 和内存使用情况"
+  commands:
+    - command: show processes cpu sorted
+      note: "按 CPU 占用排序的进程信息"
+    - command: show memory statistics
+      note: "内存总量、已使用和空闲情况"
+
+# ---------- 3. 接口状态 ----------
+interface_status:
+  description: "接口状态和错误计数"
+  commands:
+    - command: show ip interface brief
+      note: "接口 IP、协议和链路状态"
+    - command: show interfaces status
+      note: "接口速率、双工和 VLAN 状态"
+    - command: show interfaces counters errors
+      note: "接口错误报文计数"
+
+# ---------- 4. VLAN 与 MAC ----------
+vlan_mac:
+  description: "VLAN 和 MAC 地址表"
+  commands:
+    - command: show vlan brief
+      note: "VLAN 及端口成员关系"
+    - command: show mac address-table
+      note: "MAC 地址学习情况"
+
+# ---------- 5. 路由表 ----------
+routing:
+  description: "IPv4 路由信息"
+  commands:
+    - command: show ip route
+      note: "IPv4 路由表"
+
+# ---------- 6. 日志 ----------
+logs:
+  description: "系统日志信息"
+  commands:
+    - command: show logging
+      note: "日志配置和最近日志"
+
+# ---------- 7. 邻居与生成树 ----------
+neighbors_and_stp:
+  description: "CDP 邻居和生成树状态"
+  commands:
+    - command: show cdp neighbors detail
+      note: "CDP 邻居设备详细信息"
+    - command: show spanning-tree summary
+      note: "生成树状态摘要"

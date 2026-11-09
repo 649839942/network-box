@@ -1,0 +1,78 @@
+# ============================================
+# 新华三 H3C Comware 交换机巡检命令模板
+# 基于 H3C Comware 命令集，个别子命令受设备型号和软件版本影响
+# ============================================
+
+# ---------- 1. 系统基本信息 ----------
+system_info:
+  description: "获取设备版本、硬件和序列号信息"
+  commands:
+    - command: display version
+      note: "系统版本、设备型号和运行时间"
+    - command: display device
+      note: "设备板卡、模块和硬件状态"
+    - command: display device manuinfo
+      note: "设备制造商和电子序列号"
+
+# ---------- 2. CPU 与内存 ----------
+resource_usage:
+  description: "CPU 和内存使用情况"
+  commands:
+    - command: display cpu-usage summary
+      note: "CPU 整体使用率摘要"
+    - command: display memory
+      note: "内存总量、已使用和空闲情况"
+
+# ---------- 3. 温度、风扇和电源 ----------
+environment:
+  description: "温度、风扇和电源状态"
+  commands:
+    - command: display environment
+      note: "设备温度和环境状态"
+    - command: display fan
+      note: "风扇模块运行状态"
+    - command: display power
+      note: "电源模块运行状态"
+
+# ---------- 4. 接口状态 ----------
+interface_status:
+  description: "接口状态和错误计数"
+  commands:
+    - command: display interface brief
+      note: "接口概要：状态、速率和双工"
+    - command: display counters errors inbound
+      note: "接口入方向错误报文计数"
+    - command: display counters errors outbound
+      note: "接口出方向错误报文计数"
+
+# ---------- 5. VLAN 与 MAC ----------
+vlan_mac:
+  description: "VLAN 和 MAC 地址表"
+  commands:
+    - command: display vlan brief
+      note: "VLAN 概要及端口成员关系"
+    - command: display mac-address
+      note: "全部 MAC 地址学习情况"
+
+# ---------- 6. 路由表 ----------
+routing:
+  description: "IPv4 路由信息"
+  commands:
+    - command: display ip routing-table
+      note: "IPv4 路由表"
+
+# ---------- 7. 日志与告警 ----------
+logs_and_alarms:
+  description: "日志和当前告警"
+  commands:
+    - command: display alarm
+      note: "当前设备告警信息"
+    - command: display logbuffer reverse
+      note: "按时间倒序查看最新日志"
+
+# ---------- 8. 生成树 ----------
+spanning_tree:
+  description: "生成树状态"
+  commands:
+    - command: display stp brief
+      note: "STP 端口角色和状态"

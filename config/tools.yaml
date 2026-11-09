@@ -1,0 +1,45 @@
+name: 交换机巡检工具
+version: 1.2.1
+categories:
+  - id: device
+    name: 设备管理
+    tools:
+      - id: device_manager
+        name: 设备管理
+        description: 管理 SSH/Telnet 设备列表并测试连接
+        panel: ui.device_manager:DeviceManagerPanel
+  - id: configuration
+    name: 配置管理
+    tools:
+      - id: config_compare
+        name: 配置导入与比较
+        description: 导入、导出并比较华为、新华三或思科交换机配置
+        panel: ui.config_compare_panel:ConfigComparePanel
+  - id: network_tools
+    name: 网络工具
+    tools:
+      - id: cmd_terminal
+        name: CMD 命令面板
+        description: 集成 Ping / Tracert 与常用网络命令执行
+        panel: ui.cmd_panel:CmdPanel
+  - id: snmp
+    name: SNMP
+    tools:
+      - id: snmp_test
+        name: SNMP 连通性测试
+        description: 支持 SNMPv1 / v2c / v3 的连通性测试
+        panel: ui.snmp_panel:SnmpPanel
+  - id: inspection
+    name: 批量巡检
+    tools:
+      - id: batch_inspection
+        name: 批量巡检执行
+        description: 基于设备管理中的设备批量执行巡检命令
+        panel: ui.inspection_panel:InspectionPanel
+  - id: report
+    name: 结果报告
+    tools:
+      - id: result_view
+        name: 巡检结果查看
+        description: 查看、导出、重试巡检结果
+        panel: ui.result_panel:ResultPanel

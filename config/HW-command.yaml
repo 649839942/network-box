@@ -1,0 +1,88 @@
+# ============================================
+# 华为交换机自动巡检命令模板
+# S5735系列
+# ============================================
+
+# ---------- 1. 系统基本信息 ----------
+system_info:
+  description: "获取设备基本信息和运行状态"
+  commands:
+    - command: display version
+      note: "系统版本、设备型号、启动时间"
+    - command: display device
+      note: "硬件设备状态（风扇/电源/单板）"
+    - command: display esn
+      note: "设备ESN（电子序列号）"
+
+# ---------- 2. CPU 与内存 ----------
+cpu_memory:
+  description: "CPU占用率、内存使用率"
+  commands:
+    - command: display cpu-usage
+      note: "CPU整体占用率，含近5秒/1分钟/5分钟"
+    - command: display memory
+      note: "内存总量/已使用/空闲"
+
+# ---------- 3. 接口状态 ----------
+interface_status:
+  description: "所有接口的物理与协议状态"
+  commands:
+    - command: display interface brief
+      note: "接口概要：状态、速率、双工、错误包"
+    - command: display interface description
+      note: "接口描述与简要状态"  
+
+# ---------- 4. VLAN 信息 ----------
+vlan_info:
+  description: "VLAN配置与端口成员"
+  commands:
+    - command: display vlan
+      note: "所有VLAN及端口成员"
+
+# ---------- 5. MAC 地址表 ----------
+mac_table:
+  description: "MAC地址学习情况"
+  commands:
+    - command: display mac-address
+      note: "全部MAC地址表"
+    - command: display mac-address dynamic
+      note: "仅动态学习到的MAC"
+
+# ---------- 6. 路由表 ----------
+routing:
+  description: "路由信息"
+  commands:
+    - command: display ip routing-table
+      note: "IPv4路由表"
+
+# ---------- 7. 日志与告警 ----------
+logs_and_alarms:
+  description: "日志缓冲与告警信息"
+  commands:
+    - command: display logbuffer
+      note: "系统日志缓冲区（最近记录）"
+    - command: display logbuffer summary
+      note: "日志摘要统计（各等级数量）"
+    - command: display alarm active
+      note: "当前活跃告警"
+
+# ---------- 8. 端口 ----------
+port_security:
+  description: "端口安全与生成树信息"
+  commands:
+    - command: display stp brief
+      note: "STP端口角色与状态"
+    - command: display mac-address security
+      note: "安全MAC地址表"
+
+# ---------- 9. 电源与温度 ----------
+hardware_health:
+  description: "硬件健康度（温/电源）"
+  commands:
+    - command: display temperature all
+      note: "设备各区域温度"
+    - command: display power
+      note: "电源模块状态"
+    - command: display fan
+      note: "风扇状态与转速"
+
